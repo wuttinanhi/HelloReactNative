@@ -22,7 +22,7 @@ import {
 } from 'react-native';
 
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
-import {WhatIsMyIp} from './component/WhatIsMyIp';
+import {WhatIsMyIp} from './components/WhatIsMyIp';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
