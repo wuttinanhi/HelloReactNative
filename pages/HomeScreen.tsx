@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {Greeter} from '../components/Greeter';
-import {Todo} from '../components/Todo';
 
 import {WhatIsMyIp} from '../components/WhatIsMyIp';
 import {globalStyles} from '../styles/global';
@@ -38,11 +37,14 @@ export const HomeScreen = ({navigation}: any) => {
               navigation.navigate('About');
             }}
           />
-        </View>
-      </View>
 
-      <View>
-        <Todo />
+          <Button
+            title="Todo"
+            onPress={() => {
+              navigation.navigate('Todo');
+            }}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
