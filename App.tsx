@@ -9,28 +9,25 @@
  */
 
 import React from 'react';
+import {Text} from 'react-native';
+import {TailwindProvider, useTailwind} from 'tailwind-rn';
+import utilities from './tailwind.json';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Provider as PaperProvider} from 'react-native-paper';
-import {AboutScreen} from './pages/AboutScreen';
-import {HomeScreen} from './pages/HomeScreen';
-import {TodoScreen} from './pages/TodoScreen';
-const Stack = createNativeStackNavigator();
+const MyComponent = () => {
+  const tailwind = useTailwind();
+
+  return (
+    <Text style={tailwind('mt-10 text-blue-600 text-4xl h-full')}>
+      Hello world
+    </Text>
+  );
+};
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <PaperProvider>
-        <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="About" component={AboutScreen} />
-          <Stack.Screen name="Todo" component={TodoScreen} />
-        </Stack.Navigator>
-      </PaperProvider>
-    </NavigationContainer>
+    <TailwindProvider utilities={utilities}>
+      <MyComponent />
+    </TailwindProvider>
   );
 };
 
