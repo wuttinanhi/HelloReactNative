@@ -9,24 +9,17 @@
  */
 
 import React from 'react';
-import {Text} from 'react-native';
-import {TailwindProvider, useTailwind} from 'tailwind-rn';
+import {Provider as PaperProvider} from 'react-native-paper';
+import {TailwindProvider} from 'tailwind-rn';
+import Main from './Main';
 import utilities from './tailwind.json';
-
-const MyComponent = () => {
-  const tailwind = useTailwind();
-
-  return (
-    <Text style={tailwind('mt-10 text-blue-600 text-4xl h-full')}>
-      Hello world
-    </Text>
-  );
-};
 
 const App = () => {
   return (
     <TailwindProvider utilities={utilities}>
-      <MyComponent />
+      <PaperProvider>
+        <Main />
+      </PaperProvider>
     </TailwindProvider>
   );
 };

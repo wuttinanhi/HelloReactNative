@@ -1,11 +1,23 @@
 import React from 'react';
-import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Alert,
+  Button,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import {Avatar} from 'react-native-paper';
+import {useTailwind} from 'tailwind-rn/dist';
 import {Greeter} from '../components/Greeter';
 
 import {WhatIsMyIp} from '../components/WhatIsMyIp';
 import {globalStyles} from '../styles/global';
 
 export const HomeScreen = ({navigation}: any) => {
+  const tailwind = useTailwind();
+
   return (
     <SafeAreaView>
       <View>
@@ -15,8 +27,22 @@ export const HomeScreen = ({navigation}: any) => {
           <Greeter />
         </View>
 
-        <View style={globalStyles.spacer}>
-          <Button title="Test Button" />
+        <View>
+          <Pressable
+            style={tailwind('my-10 bg-orange-300 ')}
+            onPress={() => Alert.alert('Test Pressable!')}>
+            <View style={tailwind('flex flex-col items-center justify-center')}>
+              <Avatar.Icon
+                icon="car"
+                size={80}
+                style={tailwind('flex bg-transparent p-0 m-0 border-2')}
+              />
+
+              <Text style={tailwind('flex text-white text-2xl')}>
+                Test Pressable
+              </Text>
+            </View>
+          </Pressable>
         </View>
 
         <View style={globalStyles.spacer}>

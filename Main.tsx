@@ -12,7 +12,6 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Provider as PaperProvider} from 'react-native-paper';
 
 import {AboutScreen} from './pages/AboutScreen';
 import {HomeScreen} from './pages/HomeScreen';
@@ -23,15 +22,13 @@ const Stack = createNativeStackNavigator();
 const Main = () => {
   return (
     <NavigationContainer>
-      <PaperProvider>
-        <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="About" component={AboutScreen} />
-          <Stack.Screen name="Todo" component={TodoScreen} />
-        </Stack.Navigator>
-      </PaperProvider>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Todo" component={TodoScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
